@@ -71,9 +71,10 @@ void getcompanies(vector<Person> &employees, vector<string> &companyNames) {
 }
 void printHighestPaid(vector<Person> &employees) {
   int counter = 0;  // variable to hold the index of most paid person
+  float paycomp = 0;
   for(int i = 0; i < employees.size(); i++) {
     // if paycompare is less then employees[i].totalPay then set counter to the index of the higher valued totalpay
-    if(paycompare < employees[i].totalPay()) { counter = i; }
+    if(paycomp < employees[i].totalPay()) { counter = i; paycomp = employees[i].totalPay(); }
   }
   cout << "Highest paid: " << employees[counter].fullName() << "\n" << "Employee ID: " << employees[counter].getEmployeeId() << "\n"
    << "Employer: " << employees[counter].getCompanyName() << "\n" << fixed << setprecision(2) << "Total Pay: $" << employees[counter].totalPay() << endl;
