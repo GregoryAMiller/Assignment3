@@ -65,8 +65,8 @@ void getcompanies(vector<Person> &employees, vector<string> &companyNames) {
   }
   vector<string>::iterator it;  // vector iterator
   sort(companyNames.begin(), companyNames.end()); // sort vector so we can unique and remove all duplicates
-  it = std::unique(companyNames.begin(), companyNames.end()); // unique returns an iterator to the element that follows the last element not removed.
-  companyNames.resize(std::distance(companyNames.begin(), it)); // resize our vector using distance(which we need to pass it the beggining
+  it = unique(companyNames.begin(), companyNames.end()); // unique returns an iterator to the element that follows the last element not removed.
+  companyNames.resize(distance(companyNames.begin(), it)); // resize our vector using distance(which we need to pass it the beggining
     // position and the end(iterator position) and it returns the number of elements from start to finish)
 }
 void printHighestPaid(vector<Person> &employees) {
