@@ -71,7 +71,7 @@ void getcompanies(vector<Person> &employees, vector<string> &companyNames) {
 }
 void printHighestPaid(vector<Person> &employees) {
   int counter = 0;  // variable to hold the index of most paid person
-  float paycomp = 0;  // variable to hold the totalpay that is greater 
+  float paycomp = 0;  // variable to hold the totalpay that is greater
   for(int i = 0; i < employees.size(); i++) {
     // if paycomp is less then employees[i].totalPay then set counter to the index of the higher valued totalpay and set paycomp to the new totalpay
     if(paycomp < employees[i].totalPay()) { counter = i; paycomp = employees[i].totalPay(); }
@@ -87,14 +87,14 @@ void separateAndSave(vector<Person> &employees, vector<string> &companyNames) {
     ofstream data;
     data.open(fileName + ".txt"); // open a file given the company name
     // loop through our employees
-    for(int i = 0; i < employees.size(); i++) {
+    for(int i = 0; i < employees.size() - 1; i++) {
       // if the employees company == the company from company vector
       if(employees[i].getCompanyName() == companyNames[n].data()) {
         // add their total pay to comapnyPay
           companyPay += employees[i].totalPay();
           // write to the company file with employees info
           data << setw(19) << left << employees[i].fullName() << " " << setw(4) << employees[i].getEmployeeId() << " "
-           << setw(8) << left << employees[i].getCompanyName() << " " << fixed << setprecision(2) << left << employees[i].totalPay() << endl;
+           << setw(8) << left << employees[i].getCompanyName() << " $" << fixed << setprecision(2) << left << employees[i].totalPay() << endl;
       }
     }
     // before we leave outer for loop we write the companies total pay
